@@ -1,15 +1,13 @@
 <template>
   <div tabindex="-1" :style="randomBackground">
-    <div class="hover">
-      hover
-    </div>
-    <div class="text">
-      {{ element }}
+    <div v-for="software in element.lines" class="text">
+      {{ software }}
     </div>
     <div class="focus">
-      {{ element }}
-    </div>
-    <div class="overlay">
+      <h4>{{ element.name }}</h4>
+      <div v-for="el in element.content" class="">
+        {{ el }}
+      </div>
     </div>
   </div>
 </template>
@@ -26,11 +24,8 @@ export default {
   computed: {
     randomBackground() {
       const hex = Math.floor(Math.random() * 0xFFFFFF);
-      console.log(this.element, hex);
       return {
-        background: `#${hex.toString(16).substr(-6)}FF`,
-        color: '#FFFFFF',
-        'grid-area': this.element,
+        'grid-area': this.element.class,
       };
     },
   },
@@ -38,90 +33,71 @@ export default {
 </script>
 
 <style scoped>
+h4 {
+  text-align: center;
+}
+.false .incomplete {
+  opacity: 0.5;
+}
 .block > * {
   padding: 5px;
-
+}
+.server {
+  background-color:  #b2df8a;
+}
+.cache {
+  background-color: #fb9a99;
+}
+.service {
+  background-color: #33a02c;
+}
+.elasticsearch {
+  background-color: #fdbf6f;
+}
+.browser {
+  background-color: #a6cee3;
 }
 .text {
   z-index: 10;
+  font-weight: bold;
+}
+.text ~ .text {
+  border-top: 1px solid black;
 }
 .block {
-  border: 1px solid rgba(0, 0, 0, 0.2);
   /* background-color: 1px solid rgba(0, 0, 0, 0.2); */
   padding-top: 5px;
+  border: 1px solid black;
+  border-bottom: 1px solid black;
+  display: inline-table;
   /* position: relative; */
 }
-.hover {
+.focus > * {
+  padding: 5px 0;
+  margin: 0;
+}
+.focus {
+  min-width: 200px;
   opacity: 0;
   position: absolute;
   transition: all 0.2s;
   left: 0;
-}
-.focus {
-  opacity: 0;
-  position: absolute;
-  transition: all 0.2s;
-  right: 0;
+  text-align: left;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #fff59d;
+  background: linear-gradient( #fff59d, #fdbf6f);
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 .block:hover .hover{
   opacity: 1;
 }
 .block:focus .focus{
   opacity: 1;
+  z-index: 100;
 }
 .block:focus{
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
-}
-.browser {
-}
-.webApp {
-  grid-column-start: 10;
-  grid-column-end: 12;
-  grid-row-start: 5;
-}
-.webApi {
-  grid-column-start: 10;
-  grid-column-end: 12;
-  grid-row-start: 7;
-}
-.PSS {
-  grid-column-start: 10;
-  grid-column-end: 12;
-  grid-row-start: 9;
-}
-.psssearch {
-  grid-column-start: 10;
-  grid-column-end: 12;
-  grid-row-start: 11;
-}
-.redis1 {
-  grid-column-start: 8;
-  grid-column-end: 9;
-  grid-row-start: 5;
-}
-.redis2 {
-  grid-column-start: 8;
-  grid-column-end: 9;
-  grid-row-start: 7;
-}
-.cssearch {
-  grid-column-start: 14;
-  grid-column-end: 16;
-  grid-row-start: 11;
-}
-.COS {
-  grid-column-start: 14;
-  grid-column-end: 16;
-  grid-row-start: 8;
-}
-.CDA {
-  grid-column-start: 14;
-  grid-column-end: 16;
-  grid-row-start: 6;
-}
-.CMS {
-  grid-column-start: 16;
-  grid-column-end: 17;
-  grid-row-start: 8;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.7);
 }
 </style>

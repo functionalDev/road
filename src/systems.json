@@ -1,0 +1,100 @@
+{
+  "systems": [
+    {
+      "name": "browser",
+      "class": "browser",
+      "type": "browser",
+      "lines": ["browser"],
+      "content": ["Service Worker (Workbox)", "PWA"],
+      "complete": "complete"
+    },
+    {
+      "name": "webCache",
+      "class": "webCache",
+      "type": "cache",
+      "lines": ["webcache", "Varnish", "HA-Proxy"],
+      "content": ["You know it", "You love it"],
+      "complete": "complete"
+    },
+    {
+      "name": "webApp",
+      "class": "webApp",
+      "type": "server",
+      "lines": ["webApp", "HA-Proxy", "Node"],
+      "content": ["React v16.8.4", "SPA", "Express", "SSR (universal)", "Storybook", "GraphQL (apollo-client)", "styled-components"],
+      "complete": "complete"
+    },
+    {
+      "name": "webApi",
+      "class": "webApi",
+      "type": "server",
+      "lines": ["webApi", "HA-Proxy", "Node"],
+      "content": ["Express", "GraphQL (apollo-server)"],
+      "complete": "complete"
+    },
+    {
+      "name": "webappcache",
+      "class": "redis1",
+      "type": "cache",
+      "lines": ["webappcache", "redis"],
+      "content": ["application cache", "caching fragments (html)"],
+      "complete": "complete"
+    },
+    {
+      "name": "webapicache",
+      "class": "redis2",
+      "type": "cache",
+      "lines": ["webapicache", "redis"],
+      "content": ["application cache", "caching queries/fragments (graphql)"],
+      "complete": "complete"
+    },
+    {
+      "name": "publicsearchservice",
+      "class": "PSS",
+      "type": "service",
+      "lines": ["publicsearchservice", "Tomcat"],
+      "content": ["public search API", "Java", "REST", "ElasticSearch Access", "Interface to internal system"],
+      "complete": "complete"
+    },
+    {
+      "name": "contentservice",
+      "class": "COS",
+      "type": "service",
+      "lines": ["contentservice", "Tomcat"],
+      "content": ["updates to PSS","notifications"],
+      "complete": "incomplete"
+    },
+    {
+      "name": "cssearch",
+      "class": "cssearch",
+      "type": "elasticsearch",
+      "lines": ["cssearch", "Elasticsearch"],
+      "content": ["content", "content", "content"],
+      "complete": "incomplete"
+    },
+    {
+      "name": "cda",
+      "class": "CDA",
+      "type": "server",
+      "lines": ["cda", "Tomcat"],
+      "content": ["Your precious", "images", "TODO: BinaryDataService"],
+      "complete": "complete"
+    },
+    {
+      "name": "psssearch v6",
+      "class": "psssearch",
+      "type": "elasticsearch",
+      "lines": ["psssearch", "Elasticsearch v6"],
+      "content": ["live content", "seperate traffic", "- inhouse", "- public"],
+      "complete": "complete"
+    },
+    {
+      "name": "cma",
+      "class": "CMA",
+      "type": "server",
+      "lines": ["cma", "Tomcat"],
+      "content": ["editorial playground", "in house"],
+      "complete": "incomplete"
+    }
+  ]
+}

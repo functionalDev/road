@@ -1,6 +1,6 @@
 # road
 
-> relaunch on all devices architecture
+> A Vue.js project
 
 ## Build Setup
 
